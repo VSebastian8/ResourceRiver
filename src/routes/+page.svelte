@@ -27,7 +27,7 @@
 	}
 </script>
 
-<div class="flex flex-col bg-pink-100 h-screen w-screen">
+<div class="flex flex-col bg-white h-screen w-screen">
 	<!-- Buttons -->
 	<div class="flex items-center w-screen justify-center mt-5">
 		<Provider />

@@ -15,7 +15,8 @@
 	},
 	"dependencies": {
 		"fp-ts": "^2.16.11",
-		"sv-popup": "^0.5.3"
+		"sv-popup": "^0.5.3",
+		"svelte-maplibre": "^1.2.1"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.1.0",

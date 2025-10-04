@@ -13,12 +13,22 @@
 </script>
 
 <script lang="ts">
-	import { none, some, type Option } from 'fp-ts/lib/Option';
+	import { type Option } from 'fp-ts/lib/Option';
+	import MapLibre from 'svelte-maplibre/MapLibre.svelte';
+	import DefaultMarker from 'svelte-maplibre/DefaultMarker.svelte';
 	let { chat }: { chat: Option<ChatType> } = $props();
 </script>
 
 {#if chat._tag == 'None'}
-	<h1>No chat selected</h1>
+	<MapLibre
+		style="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+		class="relative aspect-[4/4] max-h-[30vh] sm:max-h-full"
+		zoom={4.5}
+		center={[30, 65]}
+	>
+		<DefaultMarker lngLat={[22.2687918, 60.4491839]} />
+		<DefaultMarker lngLat={[25.2248233, 60.2516994]} />
+	</MapLibre>
 {:else}
 	<div class="w-full text-indigo-900 bg-indigo-200 border-b-2 border-b-indigo-400 m-0 p-2">
 		Selected chat {chat.value.name}
