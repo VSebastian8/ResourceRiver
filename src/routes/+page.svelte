@@ -8,13 +8,11 @@
 	import { none, some, type Option } from 'fp-ts/lib/Option';
 	import Chat, { type ChatType } from './chat.svelte';
 	import { mock_charts } from './mock';
-	import { Modal, Content, Trigger } from 'sv-popup';
 	import Provider from './provider.svelte';
 	import { contains } from './provider.svelte';
 	import Requester from './requester.svelte';
 
 	let activeChat: Option<number> = $state(none);
-	let activeReqRes: Option<number> = $state(none);
 	let chats: ChatType[] = $state(mock_charts);
 	function getChat(): Option<ChatType> {
 		if (activeChat._tag === 'None') {
@@ -37,7 +35,6 @@
 	</div>
 	<div class="flex m-5 overflow-scroll flex-1 h-full rounded-2xl">
 		<aside class=" w-1/4 text-indigo-900 p-4 bg-indigo-200 border-r-indigo-400 border-r-2">
-			<!-- Sidebar content -->
 			{#each chats as chat, i}
 				<div
 					onclick={() => {
@@ -50,7 +47,7 @@
 				</div>
 			{/each}
 		</aside>
-		<main class="flex-1 bg-indigo-300">
+		<main class="flex flex-col flex-1 bg-indigo-300">
 			<Chat chat={getChat()} />
 		</main>
 	</div>

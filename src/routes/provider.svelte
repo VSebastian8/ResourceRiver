@@ -22,19 +22,19 @@
 					class={'btn bg-indigo-300 hover:bg-indigo-500 py-2 px-4 rounded mr-2 cursor-pointer ' +
 						(contains(activeRes, 0) ? 'bg-indigo-500 text-white' : 'bg-indigo-300')}
 					type="button"
-					onclick={() => (activeRes = some(0))}>Vehicle</button
+					onclick={() => (activeRes = some(0))}>Vehicles</button
 				>
 				<button
 					class={'btn bg-indigo-300 hover:bg-indigo-500 py-2 px-4 rounded mr-2 cursor-pointer ' +
 						(contains(activeRes, 1) ? 'bg-indigo-500 text-white' : 'bg-indigo-300')}
 					type="button"
-					onclick={() => (activeRes = some(1))}>Generator</button
+					onclick={() => (activeRes = some(1))}>Generators</button
 				>
 				<button
 					class={'btn bg-indigo-300 hover:bg-indigo-500 py-2 px-4 rounded mr-2 cursor-pointer ' +
 						(contains(activeRes, 2) ? 'bg-indigo-500 text-white' : 'bg-indigo-300')}
 					type="button"
-					onclick={() => (activeRes = some(2))}>Medical Skills</button
+					onclick={() => (activeRes = some(2))}>Skills</button
 				>
 			</div>
 			<label class="mt-5">

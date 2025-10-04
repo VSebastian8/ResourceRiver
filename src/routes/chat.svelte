@@ -6,6 +6,8 @@
 	};
 	export type ChatType = {
 		name: string;
+		senderAcc: boolean;
+		receiverAcc: boolean;
 		messages: MessageType[];
 	};
 </script>
@@ -21,16 +23,27 @@
 	<div class="w-full text-indigo-900 bg-indigo-200 border-b-2 border-b-indigo-400 m-0 p-2">
 		Selected chat {chat.value.name}
 	</div>
-	<div class="flex flex-col overflow-scroll pl-20 pr-15">
+	<div class="flex flex-1 flex-col overflow-scroll pl-20 pr-15">
 		<!-- Message Container -->
 		{#each chat.value.messages as message}
 			{#if message.sender}
-				<div class="bg-indigo-400 w-fit p-2 rounded-b-md rounded-tl-md mt-1 self-end text-white">
-					{message.msg}
+				<div class="flex gap-5 bg-indigo-400 w-fit p-2 rounded-b-md rounded-tl-md mt-1 self-end">
+					<p class="block text-white">{message.msg}</p>
+					<p class="block mt-3 text-indigo-200">
+						{message.timestamp.getHours()}:{message.timestamp.getMinutes()}
+					</p>
 				</div>
 			{:else}
-				<div class="bg-indigo-200 w-fit p-2 rounded-b-md rounded-tr-md mt-1">{message.msg}</div>
+				<div class="flex gap-5 bg-indigo-200 w-fit p-2 rounded-b-md rounded-tr-md mt-1">
+					<p>{message.msg}</p>
+					<p class="block mt-3 text-indigo-400">
+						{message.timestamp.getHours()}:{message.timestamp.getMinutes()}
+					</p>
+				</div>
 			{/if}
 		{/each}
+	</div>
+	<div class=" rounded-4xl text-indigo-900 bg-indigo-200 border-b-indigo-400 m-5 p-5 pl-15">
+		Type a message...
 	</div>
 {/if}
